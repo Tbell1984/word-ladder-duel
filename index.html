@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Ladder Duel</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>🪜 Word Ladder Duel</h1>
+      <p class="subtitle">Change one letter at a time. Every step must be a real word.</p>
+    </header>
+
+    <div class="controls">
+      <div class="control-group">
+        <span class="label">Mode</span>
+        <div class="toggle">
+          <button id="mode-daily" class="toggle-btn active" data-mode="daily">Daily</button>
+          <button id="mode-practice" class="toggle-btn" data-mode="practice">Practice</button>
+        </div>
+      </div>
+      <div class="control-group">
+        <span class="label">Length</span>
+        <div class="toggle">
+          <button id="len-4" class="toggle-btn" data-len="4">4</button>
+          <button id="len-5" class="toggle-btn active" data-len="5">5</button>
+        </div>
+      </div>
+      <button id="new-puzzle" class="ghost-btn" title="New puzzle (Practice mode only)">🔀 New</button>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat"><span class="stat-value" id="stat-time">0:00</span><span class="stat-label">Time</span></div>
+      <div class="stat"><span class="stat-value" id="stat-moves">0</span><span class="stat-label">Moves</span></div>
+      <div class="stat"><span class="stat-value" id="stat-streak">0</span><span class="stat-label">Streak🔥</span></div>
+    </div>
+
+    <div class="target-row">
+      <span class="target-tag">TARGET</span>
+      <div id="target-tiles" class="tiles target"></div>
+    </div>
+
+    <div id="ladder" class="ladder"></div>
+
+    <form id="guess-form" class="guess-form">
+      <input id="guess-input" type="text" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="type next word...">
+      <button type="submit">Enter ↵</button>
+    </form>
+    <div id="message" class="message"></div>
+
+    <div class="action-row">
+      <button id="hint-btn" class="ghost-btn">💡 Hint</button>
+      <button id="undo-btn" class="ghost-btn">↩ Undo</button>
+    </div>
+  </div>
+
+  <div id="win-modal" class="modal hidden">
+    <div class="modal-card">
+      <h2 id="win-title">🎉 Solved it!</h2>
+      <p id="win-summary"></p>
+      <button id="win-copy" class="ghost-btn">📋 Copy Result</button>
+      <button id="win-close" class="ghost-btn">Close</button>
+    </div>
+  </div>
+
+  <script src="wordlist.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
